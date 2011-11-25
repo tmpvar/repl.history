@@ -9,20 +9,15 @@ module.exports = function (repl, file) {
   } catch (e) {}
 
   var fd = fs.openSync(file, 'a'), reval = repl.eval;
-
-  repl.eval = function(code, context, file, cb) {
-    var last = code.substring(1)
-    last = last.substring(0, last.length-2);
-
-    if (last && last !== '.history') {
-      fs.write(fd, last + '\n');
+  
+  repl.rli.addListener('line', function(code) {
+    if (code && code !== '.history') {
+      fs.write(fd, code + '\n');
     } else {
       repl.rli.historyIndex++;
       repl.rli.history.pop();
     }
-
-    reval(code, context, file, cb);
-  }
+  });
 
   process.on('exit', function() {
     fs.closeSync(fd);
