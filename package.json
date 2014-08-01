@@ -5,6 +5,7 @@
   ],
   "name": "repl.history",
   "description": "add history to node's repl",
+  "license": "MIT",
   "version": "0.1.1",
   "repository": {
     "type": "git",
