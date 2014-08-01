@@ -1,19 +1,22 @@
 {
   "author": "Elijah Insua <tmpvar@gmail.com> (http://tmpvar.com)",
-  "contributors" : [
-    { "name" : "Scott Nelson", "url" : "https://github.com/scttnlsn" }
+  "contributors": [
+    {
+      "name": "Scott Nelson",
+      "url": "https://github.com/scttnlsn"
+    }
   ],
   "name": "repl.history",
   "description": "add history to node's repl",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git://github.com//tmpvar/repl.history"
   },
   "dependencies": {},
   "devDependencies": {},
-  "bin" : {
-    "repl.history" : "./bin/repl.history"
+  "bin": {
+    "repl.history": "./bin/repl.history"
   }
 }
