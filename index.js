@@ -5,11 +5,11 @@ module.exports = function (repl, file) {
     var stat = fs.statSync(file);
     repl.rli.history = fs.readFileSync(file, 'utf-8').split('\n').reverse();
     repl.rli.history.shift();
-    repl.rli.historyIndex = 0;
+    repl.rli.historyIndex = -1; // will be incremented before pop
   } catch (e) {}
 
   var fd = fs.openSync(file, 'a'), reval = repl.eval;
-  
+
   repl.rli.addListener('line', function(code) {
     if (code && code !== '.history') {
       fs.write(fd, code + '\n');
