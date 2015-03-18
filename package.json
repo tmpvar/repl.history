@@ -12,7 +12,7 @@
   "version": "0.1.2",
   "repository": {
     "type": "git",
-    "url": "git://github.com//tmpvar/repl.history"
+    "url": "git://github.com/tmpvar/repl.history"
   },
   "dependencies": {},
   "devDependencies": {},
