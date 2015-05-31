@@ -23,7 +23,7 @@ module.exports = function (repl, file) {
     fs.closeSync(fd);
   });
 
-  repl.commands['.history'] = {
+  repl.commands['history'] = {
     help : 'Show the history',
     action : function() {
       var out = [];
