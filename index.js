@@ -15,7 +15,7 @@ module.exports = function (repl, file) {
       fs.write(fd, code + '\n');
     } else {
       repl.rli.historyIndex++;
-      repl.rli.history.pop();
+      repl.rli.history.shift();
     }
   });
 
