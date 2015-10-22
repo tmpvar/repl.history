@@ -11,7 +11,7 @@ module.exports = function (repl, file) {
   var fd = fs.openSync(file, 'a'), reval = repl.eval;
 
   repl.rli.addListener('line', function(code) {
-    if (code && code !== '.history') {
+    if (code && code !== '.history'&& code !== '.clearhistory') {
       fs.write(fd, code + '\n');
     } else {
       repl.rli.historyIndex++;
@@ -34,7 +34,7 @@ module.exports = function (repl, file) {
       repl.displayPrompt();
     }
   };
-  
+
   repl.commands['clearhistory'] = {
     help : 'Clear the history',
     action : function() {
