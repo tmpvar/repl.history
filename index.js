@@ -34,4 +34,18 @@ module.exports = function (repl, file) {
       repl.displayPrompt();
     }
   };
+  
+  repl.commands['clearhistory'] = {
+    help : 'Clear the history',
+    action : function() {
+      var fd = fs.openSync(file, 'w');
+      fs.write(fd,"",function(){
+        while(repl.rli.history.length > 0){
+          repl.rli.history.pop();
+        };
+
+        repl.displayPrompt();
+      });
+    }
+  };
 };
