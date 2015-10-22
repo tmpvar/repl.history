@@ -27,4 +27,4 @@ Add two REPL commands:
 
 run `.history` for checking history.
 
-run `.clearhistory` for clear history.
+run `.clearhistory` for clearing history.
