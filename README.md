@@ -22,3 +22,7 @@ run `repl.history` on the command line
 A file `~/.node_history` will be created.
 
 I like to alias it to `nr` for node repl
+
+run `.history` to see repl's history.
+
+run `.clearhistory` to clear repl's history.
