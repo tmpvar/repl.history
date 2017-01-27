@@ -9,10 +9,16 @@ module.exports = function (repl, file) {
   } catch (e) {}
 
   var fd = fs.openSync(file, 'a'), reval = repl.eval;
+  var wstream = fs.createWriteStream(file, {
+    fd: fd
+  });
+  wstream.on('error', function(err) {
+    throw err;
+  });
 
   repl.rli.addListener('line', function(code) {
     if (code && code !== '.history') {
-      fs.write(fd, code + '\n');
+      wstream.write(code + '\n');
     } else {
       repl.rli.historyIndex++;
       repl.rli.history.pop();
