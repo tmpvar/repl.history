@@ -7,8 +7,13 @@ Persist a node repl's history to a file.
 install: `npm install repl.history`
 
 ```javascript
+var os = require('os');
+var path = require('path');
+
+var historyFile = path.join(os.homedir(), '.node_history');
+
 var repl = require('repl').start('> ');
-require('repl.history')(repl, process.env.HOME + '/.node_history');
+require('repl.history')(repl, historyFile);
 ```
 
 this will drop a `.node_history` file in your home directory.
